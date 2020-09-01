@@ -164,14 +164,14 @@ class TxStore {
       const web3 = this.web3Store.web3;
       web3.eth.getTransactionReceipt(hash, (error, res) => {
         if(res && res.blockNumber){
-          if(res.status === '0x1'){
+          //if(res.status === '0x1'){
             const index = this.txHashToIndex[hash]
             this.txs[index].status = `mined`
-          } else {
-            const index = this.txHashToIndex[hash]
-            this.txs[index].status = `error`
-            this.txs[index].name = `Mined but with errors. Perhaps out of gas`
-          }
+          //} else {
+          //  const index = this.txHashToIndex[hash]
+          //  this.txs[index].status = `error`
+          //  this.txs[index].name = `Mined but with errors. Perhaps out of gas`
+          //} 
         } else {
           this.getTxStatus(hash)
         }

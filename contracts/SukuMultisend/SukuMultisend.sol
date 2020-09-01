@@ -1,10 +1,9 @@
+/**
+ * SukuMultisend 
+ * Based on Roman Storm's multisender dapp https://rstormsf.github.io/multisender
+ */
 
-// File: contracts/EternalStorage.sol
-
-// Roman Storm Multi Sender
-// To Use this Dapp: https://rstormsf.github.io/multisender
-pragma solidity 0.4.23;
-
+pragma solidity 0.4.23; 
 
 /**
  * @title EternalStorage
@@ -21,12 +20,7 @@ contract EternalStorage {
 
 }
 
-// File: contracts/UpgradeabilityOwnerStorage.sol
-
-// Roman Storm Multi Sender
-// To Use this Dapp: https://rstormsf.github.io/multisender
 pragma solidity 0.4.23;
-
 
 /**
  * @title UpgradeabilityOwnerStorage
@@ -53,13 +47,7 @@ contract UpgradeabilityOwnerStorage {
 
 }
 
-// File: contracts/UpgradeabilityStorage.sol
-
-// Roman Storm Multi Sender
-// To Use this Dapp: https://rstormsf.github.io/multisender
 pragma solidity 0.4.23;
-
-
 /**
  * @title UpgradeabilityStorage
  * @dev This contract holds all the necessary state variables to support the upgrade functionality
@@ -88,16 +76,7 @@ contract UpgradeabilityStorage {
     }
 }
 
-// File: contracts/OwnedUpgradeabilityStorage.sol
-
-// Roman Storm Multi Sender
-// To Use this Dapp: https://rstormsf.github.io/multisender
 pragma solidity 0.4.23;
-
-
-
-
-
 /**
  * @title OwnedUpgradeabilityStorage
  * @dev This is the storage necessary to perform upgradeable contracts.
@@ -105,13 +84,7 @@ pragma solidity 0.4.23;
  */
 contract OwnedUpgradeabilityStorage is UpgradeabilityOwnerStorage, UpgradeabilityStorage, EternalStorage {}
 
-// File: contracts/SafeMath.sol
-
-// Roman Storm Multi Sender
-// To Use this Dapp: https://rstormsf.github.io/multisender
 pragma solidity 0.4.23;
-
-
 /**
  * @title SafeMath
  * @dev Math operations with safety checks that throw on error
@@ -158,13 +131,7 @@ library SafeMath {
   }
 }
 
-// File: contracts/multisender/Ownable.sol
-
-// Roman Storm Multi Sender
-// To Use this Dapp: https://rstormsf.github.io/multisender
 pragma solidity 0.4.23;
-
-
 
 /**
  * @title Ownable
@@ -212,15 +179,7 @@ contract Ownable is EternalStorage {
     }
 }
 
-// File: contracts/multisender/Claimable.sol
-
-// Roman Storm Multi Sender
-// To Use this Dapp: https://rstormsf.github.io/multisender
 pragma solidity 0.4.23;
-
-
-
-
 /**
  * @title Claimable
  * @dev Extension for the Ownable contract, where the ownership needs to be claimed.
@@ -258,14 +217,7 @@ contract Claimable is EternalStorage, Ownable {
     }
 }
 
-// File: contracts/multisender/UpgradebleStormSender.sol
-
-// Roman Storm Multi Sender
-// To Use this Dapp: https://rstormsf.github.io/multisender
 pragma solidity 0.4.23;
-
-
-
 
 /**
  * @title ERC20Basic
@@ -288,7 +240,7 @@ contract ERC20 is ERC20Basic {
 }
 
 
-contract UpgradebleStormSender is OwnedUpgradeabilityStorage, Claimable {
+contract SukuMultisend is OwnedUpgradeabilityStorage, Claimable {
     using SafeMath for uint256;
 
     event Multisended(uint256 total, address tokenAddress);
